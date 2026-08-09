@@ -8,14 +8,14 @@ TOKEN = os.environ.get("TELEGRAM_TOKEN")
 CHAT_ID = os.environ.get("TELEGRAM_CHAT_ID")
 
 ORIGIN = "BUD"
-DESTINATION = "AHO"
+DESTINATION = "BRI"
 MAX_PRICE_HUF = 40000
-MIN_DAYS = 3
+MIN_DAYS = 1
 MAX_DAYS = 8
 
 START_DATE = datetime(2026, 9, 1)
 END_DATE = datetime(2026, 10, 31)
-STEP_DAYS = 3
+STEP_DAYS = 1
 
 def send_telegram(text):
     if not TOKEN or not CHAT_ID:
