@@ -9,12 +9,12 @@ CHAT_ID = os.environ.get("TELEGRAM_CHAT_ID")
 
 ORIGIN = "BUD"
 DESTINATION = "AHO"
-MAX_PRICE_HUF = 20000
+MAX_PRICE_HUF = 30000
 MIN_DAYS = 3
 MAX_DAYS = 8
 
-START_DATE = datetime(2027, 7, 1)
-END_DATE = datetime(2027, 8, 31)
+START_DATE = datetime(2026, 9, 1)
+END_DATE = datetime(2026, 10, 31)
 STEP_DAYS = 3
 
 def send_telegram(text):
