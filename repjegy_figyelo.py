@@ -81,7 +81,7 @@ def main():
             time.sleep(2)
         current += timedelta(days=STEP_DAYS)
     if not found:
-        send_telegram(f"Nem találtam {MAX_PRICE_HUF} Ft alatti jegyet BUD–AHO-ra (2027 júl-aug).")
+        send_telegram(f"Nem találtam {MAX_PRICE_HUF} Ft alatti jegyet {ORIGIN}–{DESTINATION}-ra {START_DATE} - {END_DATE} között.")
 
 if __name__ == "__main__":
     main()
