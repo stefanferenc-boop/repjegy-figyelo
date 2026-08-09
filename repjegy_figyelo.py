@@ -11,10 +11,10 @@ ORIGIN = "BUD"
 DESTINATION = "BRI"
 MAX_PRICE_HUF = 50000
 MIN_DAYS = 1
-MAX_DAYS = 8
+MAX_DAYS = 2
 
-START_DATE = datetime(2026, 9, 1)
-END_DATE = datetime(2026, 10, 31)
+START_DATE = datetime(2026, 10, 10)
+END_DATE = datetime(2026, 10, 15)
 STEP_DAYS = 1
 
 def send_telegram(text):
