@@ -9,7 +9,7 @@ CHAT_ID = os.environ.get("TELEGRAM_CHAT_ID")
 
 ORIGIN = "BUD"
 DESTINATION = "AHO"
-MAX_PRICE_HUF = 30000
+MAX_PRICE_HUF = 40000
 MIN_DAYS = 3
 MAX_DAYS = 8
 
@@ -81,7 +81,7 @@ def main():
             time.sleep(2)
         current += timedelta(days=STEP_DAYS)
     if not found:
-        send_telegram(f"Ma nem találtam {MAX_PRICE_HUF} Ft alatti jegyet BUD–AHO-ra (2027 júl-aug).")
+        send_telegram(f"Nem találtam {MAX_PRICE_HUF} Ft alatti jegyet BUD–AHO-ra (2027 júl-aug).")
 
 if __name__ == "__main__":
     main()
