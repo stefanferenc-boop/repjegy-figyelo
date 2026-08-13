@@ -68,7 +68,7 @@ def main():
                 if price_huf <= MAX_PRICE_HUF:
                     msg = (
                         f"<b>Olcsó jegy!</b>\n\n"
-                        f"BUD → AHO\n"
+                        f"{ORIGIN} → {DESTINATION}\n"
                         f"Oda: {current.strftime('%Y-%m-%d')}\n"
                         f"Vissza: {return_date.strftime('%Y-%m-%d')}\n"
                         f"Tartózkodás: {duration} nap\n"
