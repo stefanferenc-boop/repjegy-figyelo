@@ -1,30 +1,9 @@
-name: Repjegy Figyelo
-
-on:
-  schedule:
-    - cron: '0 6,18 * * *'   # 6:00 és 18:00 UTC (nyáron kb. 8:00 és 20:00 Magyarországon)
-  workflow_dispatch:         # manuális indítás lehetősége
-
-run: |
-  pip install playwright BeautifulSoup4
-  playwright install chromium
-
-jobs:
-  run:
-    runs-on: ubuntu-latest
-    steps:
-      - uses: actions/checkout@v4
-
-      - name: Set up Python
-        uses: actions/setup-python@v5
-        with:
-          python-version: '3.11'
-
-      - name: Install dependencies
-        run: pip install -r requirements.txt
-
-      - name: Run script
-        env:
-          TELEGRAM_TOKEN: ${{ secrets.TELEGRAM_TOKEN }}
-          TELEGRAM_CHAT_ID: ${{ secrets.TELEGRAM_CHAT_ID }}
-        run: python repjegy_figyelo.py
+- name: Run python repjegy_figyelo.py
+  timeout-minutes: 4   # Biztonsági háló: ha 4 perc alatt nem végez, a GitHub leállítja
+  env:
+    TELEGRAM_TOKEN: ${{ secrets.TELEGRAM_TOKEN }}
+    TELEGRAM_CHAT_ID: ${{ secrets.TELEGRAM_CHAT_ID }}
+  run: |
+    pip install playwright
+    playwright install chromium
+    python repjegy_figyelo.py
