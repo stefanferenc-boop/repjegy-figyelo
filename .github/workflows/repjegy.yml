@@ -1,9 +1,30 @@
-- name: Run python repjegy_figyelo.py
-  timeout-minutes: 4   # Biztonsági háló: ha 4 perc alatt nem végez, a GitHub leállítja
-  env:
-    TELEGRAM_TOKEN: ${{ secrets.TELEGRAM_TOKEN }}
-    TELEGRAM_CHAT_ID: ${{ secrets.TELEGRAM_CHAT_ID }}
-  run: |
-    pip install playwright
-    playwright install chromium
-    python repjegy_figyelo.py
+name: Repulojegy Figyelo
+
+on:
+  push:
+    branches: [ "main", "master" ]
+  schedule:
+    - cron: '0 8 * * *' # Minden nap reggel 8-kor automatikusan lefut
+
+jobs:
+  run-script:
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Checkout repository
+      uses: actions/checkout@v4
+
+    - name: Set up Python
+      uses: actions/setup-python@v5
+      with:
+        python-version: '3.11'
+
+    - name: Install dependencies and Run Script
+      timeout-minutes: 4
+      env:
+        TELEGRAM_TOKEN: ${{ secrets.TELEGRAM_TOKEN }}
+        TELEGRAM_CHAT_ID: ${{ secrets.TELEGRAM_CHAT_ID }}
+      run: |
+        pip install playwright requests
+        playwright install chromium
+        python repjegy_figyelo.py
