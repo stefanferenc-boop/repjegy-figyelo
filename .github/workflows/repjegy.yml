@@ -5,6 +5,10 @@ on:
     - cron: '0 6,18 * * *'   # 6:00 és 18:00 UTC (nyáron kb. 8:00 és 20:00 Magyarországon)
   workflow_dispatch:         # manuális indítás lehetősége
 
+run: |
+  pip install playwright BeautifulSoup4
+  playwright install chromium
+
 jobs:
   run:
     runs-on: ubuntu-latest
